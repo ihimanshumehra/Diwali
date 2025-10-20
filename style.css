@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(#2a003f, #000);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.glow-text {
+  font-size: 3.5em;
+  color: #ffcc00;
+  text-shadow: 0 0 20px #ff9, 0 0 40px #f90;
+  animation: pulse 2s alternate infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px #ff9; }
+  100% { text-shadow: 0 0 30px #ff0, 0 0 60px #f00; }
+}
+
+.subtitle {
+  color: #ddd;
+  margin: 10px 0 40px;
+}
+
+.diya {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  background: #d78c2e;
+  border-radius: 0 0 60px 60px;
+  box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.flame {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 70px;
+  border-radius: 50% 50% 20% 20%;
+  background: radial-gradient(ellipse at bottom, #ffcc00, #ff6600);
+  animation: flicker 0.25s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: translateX(-50%) scaleY(1); opacity: 1; }
+  to { transform: translateX(-50%) scaleY(0.85); opacity: 0.9; }
+}
+
+.flame.bright {
+  animation: glowUp 0.2s forwards;
+  box-shadow: 0 0 15px 5px orange;
+}
+
+@keyframes glowUp {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+ 
