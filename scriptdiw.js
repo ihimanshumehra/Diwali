@@ -61,9 +61,20 @@ setInterval(() => {
   );
 }, 1200);
 
-canvas.addEventListener('click', (e) => {
-  createFirework(e.clientX, e.clientY);
-});
+function fireworkAtEvent(e) {
+  let x, y;
+  if (e.touches && e.touches.length > 0) {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  } else {
+    x = e.clientX;
+    y = e.clientY;
+  }
+  createFirework(x, y);
+}
+
+canvas.addEventListener('click', fireworkAtEvent);
+canvas.addEventListener('touchstart', fireworkAtEvent);
 
 // Diya click glowing
 const diya = document.getElementById('diya');
